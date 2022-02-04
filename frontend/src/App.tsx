@@ -1,8 +1,20 @@
+import DataTable from "components/DataTable";
+import Footer from "components/Footer";
+import NavBar from "components/Navbar";
+
 function App() {
   return (
-    <div >
-      <h1>Teste de APP React</h1>
-    </div>
+    <>
+      <NavBar />
+
+      <div className="container">
+        <h1 className="text-primary">Sistema de Vendas</h1>
+      
+        <DataTable />
+      </div>
+
+      <Footer />
+    </>
   );
 }
 
