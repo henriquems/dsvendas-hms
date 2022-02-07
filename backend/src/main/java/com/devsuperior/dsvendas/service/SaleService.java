@@ -6,20 +6,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.devsuperior.dsvendas.dto.SellerDTO;
-import com.devsuperior.dsvendas.entities.Seller;
-import com.devsuperior.dsvendas.repositories.SellerRepository;
+import com.devsuperior.dsvendas.dto.SaleDTO;
+import com.devsuperior.dsvendas.entities.Sale;
+import com.devsuperior.dsvendas.repositories.SaleRepository;
 
 @Service
-public class SellerService {
+public class SaleService {
 	
 	@Autowired
-	private SellerRepository repository;
+	private SaleRepository repository;
 	
 	@Transactional(readOnly = true)
-	public Page<SellerDTO> findAll(Pageable pageable){
-		Page<Seller> result = repository.findAll(pageable);
-		return result.map(x -> new SellerDTO(x)); 
+	public Page<SaleDTO> findAll(Pageable pageable){
+		Page<Sale> result = repository.findAll(pageable);
+		return result.map(x -> new SaleDTO(x)); 
 	}
 	
 }

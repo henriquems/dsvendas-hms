@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsuperior.dsvendas.dto.SellerDTO;
-import com.devsuperior.dsvendas.service.SellerService;
+import com.devsuperior.dsvendas.dto.SaleDTO;
+import com.devsuperior.dsvendas.service.SaleService;
 
 @RestController
-@RequestMapping(value = "/sellers")
-public class SellerController {
+@RequestMapping(value = "/sales")
+public class SaleController {
 	
 	@Autowired
-	private SellerService service;
+	private SaleService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<SellerDTO>> findAll(Pageable pageable){
-		Page<SellerDTO> list = service.findAll(pageable);
+	public ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable){
+		Page<SaleDTO> list = service.findAll(pageable);
 		return ResponseEntity.ok(list);
 	}
 	
