@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_sales")
-public class Sale {
+public class Venda {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,18 +24,18 @@ public class Sale {
 	
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
-	private Seller seller;
+	private Vendedor vendedor;
 	
-	public Sale() {
+	public Venda() {
 	}
 	
-	public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Seller seller) {
+	public Venda(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Vendedor vendedor) {
 		this.id = id;
 		this.visited = visited;
 		this.deals = deals;
 		this.amount = amount;
 		this.date = date;
-		this.seller = seller;
+		this.vendedor = vendedor;
 	}
 
 	public Long getId() {
@@ -78,12 +78,12 @@ public class Sale {
 		this.date = date;
 	}
 
-	public Seller getSeller() {
-		return seller;
+	public Vendedor getVendedor() {
+		return vendedor;
 	}
 
-	public void setSeller(Seller seller) {
-		this.seller = seller;
+	public void setVendedor(Vendedor vendedor) {
+		this.vendedor = vendedor;
 	}
 	
 }

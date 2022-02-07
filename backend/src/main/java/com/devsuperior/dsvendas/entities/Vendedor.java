@@ -12,20 +12,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_sellers")
-public class Seller {
+public class Vendedor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	
-	@OneToMany(mappedBy = "seller")
-	private List<Sale> sales = new ArrayList<Sale>();
+	@OneToMany(mappedBy = "vendedor")
+	private List<Venda> vendas = new ArrayList<Venda>();
 
-	public Seller() {
+	public Vendedor() {
 	}
 
-	public Seller(Long id, String name) {
+	public Vendedor(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -46,12 +46,12 @@ public class Seller {
 		this.name = name;
 	}
 
-	public List<Sale> getSales() {
-		return sales;
+	public List<Venda> getVendas() {
+		return vendas;
 	}
 
-	public void setSales(List<Sale> sales) {
-		this.sales = sales;
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
 	}
 
 }
