@@ -1,10 +1,27 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
+import { VendaSoma } from 'types/venda';
+import { BASE_URL } from 'utils/redirects';
+
+type ChartData = {
+    labels: string[];
+    series: number[];
+}
 
 function DonutChart() {
-    const mockData = {
-        series: [477138, 499928, 444867, 220426, 473088],
-        labels: ['Anakin', 'Barry Allen', 'Kal-El', 'Logan', 'Padmé']
-    }
+    const [chartData, setChartData] = useState<ChartData>({labels : [], series: []});
+    
+    useEffect(() => {
+        axios.get(`${BASE_URL}/vendas/total-vendas-por-vendedor`)
+        .then(response => {
+            const data = response.data as VendaSoma[];
+            const myLabels = data.map(x => x.nomeVendedor);
+            const mySerires = data.map(x => x.soma); 
+
+            setChartData({labels : myLabels, series : mySerires});
+        });
+    }, [])
     
     const options = {
         legend: {
@@ -14,8 +31,8 @@ function DonutChart() {
     
     return (
         <Chart 
-          options={{ ...options, labels: mockData.labels}}
-          series={mockData.series}
+          options={{ ...options, labels: chartData.labels}}
+          series={chartData.series}
           type="donut"
           height="240"
         />  
