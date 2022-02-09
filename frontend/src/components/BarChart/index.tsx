@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import { VendaSucesso } from 'types/venda';
 import { round } from 'utils/format';
-import { BASE_URL } from 'utils/redirects';
+import { BASE_URL } from 'utils/requests';
 
 type SeriesData = {
     name: string;

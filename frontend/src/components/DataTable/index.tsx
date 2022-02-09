@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { VendaPagina } from 'types/venda';
 import { formatLocalDate } from 'utils/format';
-import { BASE_URL } from 'utils/redirects';
+import { BASE_URL } from 'utils/requests';
 import Pagination from "components/Pagination";
 
 function DataTable() {

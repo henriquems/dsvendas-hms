@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import { VendaSoma } from 'types/venda';
-import { BASE_URL } from 'utils/redirects';
+import { BASE_URL } from 'utils/requests';
 
 type ChartData = {
     labels: string[];
